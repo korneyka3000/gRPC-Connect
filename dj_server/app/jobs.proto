@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package jobs;
+
+enum Level{
+  Junior = 0;
+  Middle = 1;
+  Senior = 3;
+}
+
+message JobResponse{
+  int64 id = 1;
+  string title = 2;
+  Level level= 3;
+  double salary = 4;
+  string location = 5;
+
+}
+
+message JobRequest{
+  string title = 1;
+}
+
+message Empty{}
+
+message AddJob{
+  string title = 1;
+  string level= 2;
+  double salary = 3;
+  string location = 4;
+}
+service JobService{
+  rpc GetJobs(JobRequest) returns (stream JobResponse);
+  rpc GetListJobs(Empty) returns (stream JobResponse);
+  rpc CreateJob(AddJob) returns (Empty);
+}

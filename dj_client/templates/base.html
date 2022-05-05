@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Here with Grpc</title>
+</head>
+<body>
+<form action="{% url 'main' %}" method="POST">
+    {% csrf_token %}
+    Put some Job name(e.g. Python,JavaScript,Golang)
+    {{ form.as_p }}
+    <button type="submit">
+        Search Job
+    </button>
+    <a href="{% url 'add' %}"><button type="button">Add New Job</button></a>
+    {% for i in arr %}
+        <li>
+        <p>Job: {{ i.title }};</p>
+        <p>Location: {{ i.location }};</p>
+        <p>Experience needed: {{ i.level }};</p>
+        <p>Salary offer : {{ i.salary }}</p>
+        </li>
+    {% endfor %}
+
+</form>
+</body>
+</html>

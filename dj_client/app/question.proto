@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package question;
+
+message QuestionRequest{
+  string body = 1;
+}
+
+message QuestionResponse{
+  string answer = 1;
+}
+
+service Quiz{
+  rpc GetQuestion(QuestionRequest) returns (QuestionResponse);
+}

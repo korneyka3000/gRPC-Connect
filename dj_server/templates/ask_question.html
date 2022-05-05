@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Here You can get answers to all your questions...</title>
+</head>
+<body>
+Ask your question here :
+<form action="{% url 'question' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>
+        Ask!
+    </button>
+    <p>{{ response }}</p>
+</form>
+</body>
+</html>
